@@ -65,11 +65,11 @@ function Intro() {
 
 function SkillList() {
   return (
-    <div className="skill-list">
+    <ul className="skill-list">
       {skills.map((skill) => (
         <Skill skillObj={skill} key={skill.skill} />
       ))}
-    </div>
+    </ul>
   );
 }
 
@@ -89,10 +89,10 @@ function Skill({ skillObj }) {
       emoji = null;
   }
   return (
-    <div style={{ backgroundColor: skillObj.color }} className="skill">
+    <li style={{ backgroundColor: skillObj.color }} className="skill">
       <span>{skillObj.skill}</span>
       <span>{emoji}</span>
-    </div>
+    </li>
   );
 }
 
