@@ -2,6 +2,39 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles.css";
 
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#2662EA",
+  },
+  {
+    skill: "JavaScript",
+    level: "advanced",
+    color: "#EFD81D",
+  },
+  {
+    skill: "Web Design",
+    level: "advanced",
+    color: "#C3DCAF",
+  },
+  {
+    skill: "Git and GitHub",
+    level: "intermediate",
+    color: "#E84F33",
+  },
+  {
+    skill: "React",
+    level: "advanced",
+    color: "#60DAFB",
+  },
+  {
+    skill: "Svelte",
+    level: "beginner",
+    color: "#FF3B00",
+  },
+];
+
 function App() {
   return (
     <div className="card">
@@ -23,7 +56,7 @@ function Intro() {
     <div>
       <h1>Mosabbir Rehan</h1>
       <p>
-        Front-end web developer and teacher. When not coding, I like to play
+        Front End Web developer and teacher. When not coding, I like to play
         Cricket, to cook (and eat), or to just enjoy watching Cricket match.
       </p>
     </div>
@@ -33,20 +66,32 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill name="HTML" emoji="💪" color="tomato" />
-      <Skill name="CSS" emoji="👍" color="gray" />
-      <Skill name="Javascript" emoji="💪" color="yellow" />
-      <Skill name="React" emoji="👶" color="skyblue" />
-      <Skill name="Node js" emoji="👶" color="olive" />
+      {skills.map((skill) => (
+        <Skill skillObj={skill} key={skill.skill} />
+      ))}
     </div>
   );
 }
 
-function Skill(props) {
+function Skill({ skillObj }) {
+  let emoji;
+  switch (skillObj.level) {
+    case "beginner":
+      emoji = "👶";
+      break;
+    case "intermediate":
+      emoji = "👍";
+      break;
+    case "advanced":
+      emoji = "💪";
+      break;
+    default:
+      emoji = null;
+  }
   return (
-    <div style={{ backgroundColor: props.color }} className="skill">
-      {props.name}
-      {props.emoji}
+    <div style={{ backgroundColor: skillObj.color }} className="skill">
+      <span>{skillObj.skill}</span>
+      <span>{emoji}</span>
     </div>
   );
 }
