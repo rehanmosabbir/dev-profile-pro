@@ -28,11 +28,6 @@ const skills = [
     level: "advanced",
     color: "#60DAFB",
   },
-  {
-    skill: "Svelte",
-    level: "beginner",
-    color: "#FF3B00",
-  },
 ];
 
 function App() {
